@@ -1,14 +1,14 @@
 const express = require("express");
 const router=express.Router()
-const productController=require('../controllers/product.controller');
-const uploader = require("../middlewar/uploder");
+const recordController=require('../controller/record.controller');
+
 
 
 router.route('/')
-.get(productController.getController)
-.post(productController.createProduct)
-router.route('/:id')
-.patch(productController.updateProduct)
-.delete(productController.deleteProduct)
+.get(recordController.getRecord)
+.post(recordController.createRecord)
+/* router.route('/:id')
+.patch(recordController.updateProduct)
+.delete(recordController.deleteProduct) */
 
 module.exports=router;

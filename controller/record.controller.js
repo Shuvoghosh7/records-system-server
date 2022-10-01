@@ -3,13 +3,9 @@ const { getRecordService, createRecordService } = require('../services/record.se
 exports.getRecord=async (req, res, next) => {
     try {
       //create method
-      const brands=await getRecordService();
+      const record=await getRecordService();
   
-      res.status(200).json({
-        stauts: "success",
-        massage: "successfully get data for Record",
-        data: brands
-      })
+      res.send(record)
     } catch (error) {
       res.status(400).json({
         stauts:"fail",
@@ -22,8 +18,6 @@ exports.getRecord=async (req, res, next) => {
   }
   exports.createRecord=async (req, res, next) => {
     try {
-      
-      //create method
       const result=await createRecordService(req.body)
       res.status(200).json({
         stauts: "success",
@@ -36,9 +30,7 @@ exports.getRecord=async (req, res, next) => {
         message: "Data is not inserted",
         error : error.message
       })
-  
     }
-    
   }
 
 
