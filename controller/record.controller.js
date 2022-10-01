@@ -1,6 +1,4 @@
-const Products=require('../models/Product')
-
-
+const { getRecordService, createRecordService } = require('../services/record.services');
 
 exports.getRecord=async (req, res, next) => {
     try {
