@@ -9,6 +9,6 @@ router.route('/')
 .post(recordController.createRecord)
 router.route('/:id')
 .patch(recordController.updateRecord)
-/* .delete(recordController.deleteProduct) */
+.delete(recordController.deleteRecord)
 
 module.exports=router;

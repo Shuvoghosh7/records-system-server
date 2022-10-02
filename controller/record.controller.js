@@ -1,4 +1,4 @@
-const { getRecordService, createRecordService, updateRecordService } = require('../services/record.services');
+const { getRecordService, createRecordService, updateRecordService, deleteRecordService } = require('../services/record.services');
 
 exports.getRecord=async (req, res, next) => {
     try {
@@ -37,6 +37,28 @@ exports.getRecord=async (req, res, next) => {
     try {
       const {id}=req.params;
       const result=await updateRecordService(id,req.body)
+      res.send(result)
+      
+    } catch (error) {
+      res.status(400).json({
+        stauts:"fail",
+        message: "Record is not update",
+        error : error.message
+      })
+    }
+
+  }
+
+  exports.deleteRecord=async(req,res,next)=>{
+    try {
+      const {id}=req.params;
+      const result=await deleteRecordService(id)
+      if(!result.deletedCount){
+        return res.status({
+          stauts: "fail",
+          error: "Could not delete the Record",
+        })
+      }
       res.send(result)
       
     } catch (error) {

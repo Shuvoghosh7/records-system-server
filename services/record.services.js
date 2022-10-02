@@ -17,5 +17,8 @@ exports.updateRecordService = async (id,data) => {
     return result;
 }
 
-
+exports.deleteRecordService = async (id) => {
+    const result = await Record.deleteOne({_id:id})
+    return result;
+}
 
