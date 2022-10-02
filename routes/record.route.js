@@ -1,7 +1,7 @@
 const express = require("express");
 const router=express.Router()
 const recordController=require('../controller/record.controller');
-
+const uploader = require("../middlewar/uploadFile");
 
 
 router.route('/')

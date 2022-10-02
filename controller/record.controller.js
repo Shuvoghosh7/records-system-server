@@ -70,3 +70,11 @@ exports.getRecord=async (req, res, next) => {
     }
 
   }
+
+ /*  exports.fileUpload=async (req, res, next) => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  } */
