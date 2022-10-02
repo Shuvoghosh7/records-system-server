@@ -1,4 +1,4 @@
-const { getRecordService, createRecordService } = require('../services/record.services');
+const { getRecordService, createRecordService, updateRecordService } = require('../services/record.services');
 
 exports.getRecord=async (req, res, next) => {
     try {
@@ -33,4 +33,18 @@ exports.getRecord=async (req, res, next) => {
     }
   }
 
+  exports.updateRecord=async(req,res,next)=>{
+    try {
+      const {id}=req.params;
+      const result=await updateRecordService(id,req.body)
+      res.send(result)
+      
+    } catch (error) {
+      res.status(400).json({
+        stauts:"fail",
+        message: "Record is not update",
+        error : error.message
+      })
+    }
 
+  }

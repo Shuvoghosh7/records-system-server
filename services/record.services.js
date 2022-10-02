@@ -10,4 +10,12 @@ exports.createRecordService = async (data) => {
     return result;
 }
 
+exports.updateRecordService = async (id,data) => {
+    const result = await Record.updateOne({_id:id},data,{
+        runValidators:true
+    })
+    return result;
+}
+
+
 
